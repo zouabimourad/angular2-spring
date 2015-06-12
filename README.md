@@ -1,5 +1,5 @@
 # angular2-spring
-Angular 2 and Spring Integration
+This example shows how to do a paginated table with Angular 2 and Spring ( RestController ) 
 
 ## Installation
 
