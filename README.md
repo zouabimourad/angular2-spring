@@ -14,9 +14,9 @@ You'll need Maven 3+ and Java  7
 
 ## Execute
 
-### The back End
+### The Back End
 
-* `run.sh`
+* `run.sh` will start an embedded  Jetty Server ( with an embedded H2 database ) 
 
 ### The Front End
 
