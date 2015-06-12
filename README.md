@@ -1,11 +1,11 @@
 # angular2-spring
-Angular 2 Spring Integration
+Angular 2 and Spring Integration
 
 ## Installation
 
-### The Back end
+### The Back End
 
-No need for installation.
+You'll need Maven 3+ and Java  7 
 
 ### The Front End
 
