@@ -1,10 +1,9 @@
-import {ComponentAnnotation as Component, ViewAnnotation as View,ParentAnnotation as Parent, Observable,EventEmitter, bootstrap, NgIf , NgFor} from 'angular2/angular2';
-import {RouterOutlet, RouterLink, Router, routerInjectables, RouteConfig} from 'angular2/router';
+import {ComponentAnnotation as Component, ViewAnnotation as View, NgIf , NgFor} from 'angular2/angular2';
 import {webServiceEndpoint} from 'constants'
 import {PersonService} from 'service/personService'
 
-import {PaginationTable , PaginationTableDefinition ,  PaginationTableColumnElement , PaginationTableDataProvider , PaginationTablePropertySort , PaginationTableColumn , PaginationTableProperty} from './paginationTable'
-import {Injectable } from 'angular2/angular2';
+import {PaginationTable ,  PaginationTableDataProvider, PaginationTableColumn , PaginationTableProperty} from 'app/paginationTable'
+import {Injectable} from 'angular2/angular2';
 
 @Component({
     selector: 'app'
@@ -18,8 +17,7 @@ export class App {
     personProvider : PersonProvider;
 
     constructor ( ) {
-        this.personProvider = new PersonProvider();
-
+        this.personProvider = new PersonProvider
     }
 }
 
