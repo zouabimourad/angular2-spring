@@ -47,11 +47,6 @@
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>gwt-maven-plugin</artifactId>
-					<version>${gwt.version}</version>
-				</plugin>
-				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>build-helper-maven-plugin</artifactId>
 					<version>1.9.1</version>
 				</plugin>
@@ -89,17 +84,10 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
-		<extensions>
-			<extension>
-				<groupId>org.apache.maven.wagon</groupId>
-				<artifactId>wagon-webdav-jackrabbit</artifactId>
-				<version>2.8</version>
-			</extension>
-		</extensions>
 	</build>
 	<dependencyManagement>
 		<dependencies>
-			<!-- Spring 3 dependencies -->
+			<!-- Spring 4 dependencies -->
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-core</artifactId>

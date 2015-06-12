@@ -84,7 +84,7 @@
 		</plugins>
 	</build>
 	<dependencies>
-		<!-- Spring 3 dependencies -->
+		<!-- Spring 4 dependencies -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
