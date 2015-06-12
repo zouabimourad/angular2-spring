@@ -9,14 +9,14 @@ You'll need Maven 3+ and Java  7
 
 ### The Front End
 
-* `npm install` to install node packages
-* `bower install` to install bower packages
+* `npm install` to install Node packages
+* `bower install` to install Bower packages ( run `npm install -g bower` if you don't have Bower already installed )
 
 ## Execute
 
 ### The Back End
 
-* `run.sh` will start an embedded  Jetty Server ( with an embedded H2 database ) 
+* `run.sh` to start an embedded  Jetty Server ( with an embedded H2 database ) 
 
 ### The Front End
 
