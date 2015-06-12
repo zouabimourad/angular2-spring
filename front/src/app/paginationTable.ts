@@ -2,7 +2,7 @@
 
 import {ComponentAnnotation as Component, ViewAnnotation as View,ParentAnnotation as Parent,DirectiveAnnotation as Directive ,AncestorAnnotation as Ancestor, EventEmitter, ElementRef, bootstrap, NgIf , NgFor} from 'angular2/angular2';
 import {webServiceEndpoint , defaultItemsCountPerPage} from 'constants'
-import {ContratService} from 'service/contratService'
+
 
 @Component({
     selector: 'paginationTable',
