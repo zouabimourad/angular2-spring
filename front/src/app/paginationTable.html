@@ -1,0 +1,50 @@
+
+<nav>
+    <ul class="pager">
+        <li *ng-if="!tablePage.first" ><a href="#"  (click)="fetchPreviousPage()" >Previous</a></li>
+        <li *ng-if="!tablePage.last" ><a href="#"  (click)="fetchNextPage()" >Next</a></li>
+    </ul>
+</nav>
+
+<table class="table table-bordered table-hover table-condensed">
+
+    <thead>
+
+    <th  *ng-for="#column of columns">
+
+        <div *ng-for="#property of column.properties">
+
+            {{property.label}}
+
+            <div *ng-if=" property.sortable && tablePage.content != null">
+
+            <a *ng-if="!propertySort(property.name)" onclick="javascript:void(0);" href="#" (click)="sortBy(property.name,'ASC')"  class="glyphicon glyphicon-sort"></a>
+            <a *ng-if="propertySortAsc(property.name)" onclick="javascript:void(0);" href="#" (click)="sortBy(property.name,'DESC')"  class="glyphicon glyphicon-chevron-down">   </a>
+            <a *ng-if="propertySortDesc(property.name)" onclick="javascript:void(0);" href="#" (click)="sortBy(property.name,'ASC')" class="glyphicon glyphicon-chevron-up" >  </a>
+            <a *ng-if="propertySort(property.name)" onclick="javascript:void(0);" href="#" (click)="unSortBy(property.name)" > unsort </a>
+
+            </div>
+
+        </div>
+
+    </th>
+
+    </thead>
+
+    <tbody>
+    <tr *ng-for="#object of tablePage.content">
+
+        <td  *ng-for="#column of columns">
+            <div *ng-for="#property of column.properties">
+                {{object[property.name]}}
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<div>
+       Page : <input  #pagenumber [value]="tablePage.number+1" (keyup)="fetchPageNumber($event)"  > / {{tablePage.totalPages}}
+    -
+       Items per page :  <input  onclick="javascript:void(0);" [value]="tablePage.size" (keyup)="changePageSize($event)" />
+</div>

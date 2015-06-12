@@ -1,0 +1,17 @@
+Persons : <br/>
+
+<paginationTable    [provider]="personProvider">
+    <paginationTableColumn>
+        <paginationTableProperty [name]="'id'" [label]="'Id'"  [sortable]="true"  />
+    </paginationTableColumn>
+
+    <paginationTableColumn>
+        <paginationTableProperty [name]="'firstname'" [label]="'Frist Name'"    />
+        <paginationTableProperty [name]="'lastname'" [label]="'Last Name'" [sortable]="true"   />
+    </paginationTableColumn>
+    
+     <paginationTableColumn>
+        <paginationTableProperty [name]="'age'" [label]="'Age'"  [sortable]="true"  />
+    </paginationTableColumn>
+
+</paginationTable>

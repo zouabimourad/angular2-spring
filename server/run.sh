@@ -1,0 +1,1 @@
+mvn jetty:run -Dspring.profiles.active=swagger-ui
