@@ -6,10 +6,9 @@ import {webServiceEndpoint , defaultItemsCountPerPage} from 'constants'
 
 @Component({
     selector: 'paginationTable',
-    properties: {
-        'definition': 'definition',
-        'provider': 'provider'
-    }
+    properties: [
+      'provider'
+    ]
 })
 @View({
     templateUrl: 'app/paginationTable.html',
@@ -147,11 +146,11 @@ export class PaginationTableColumn {
 
 @Directive({
     selector: 'paginationTableProperty',
-    properties: {
-        'name': 'name',
-        'label': 'label',
-        'sortable': 'sortable'
-    }
+    properties: [
+        'name',
+        'label',
+        'sortable'
+    ]
 })
 export class PaginationTableProperty {
     name : string;
