@@ -5,7 +5,6 @@ var rename = require('gulp-rename');
 var tsc = require('gulp-typescript');
 var sourcemaps = require('gulp-sourcemaps');
 var rework = require('rework');
-var npmRework = require('rework-npm');
 var path = require('path');
 var fs = require('fs');
 var mkpath = require('mkpath');
