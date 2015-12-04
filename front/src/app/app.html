@@ -1,17 +1,28 @@
-Persons : <br/>
+<template [ng-if]="personPage != null">
 
-<paginationTable    [provider]="personProvider">
-    <paginationTableColumn>
-        <paginationTableProperty [name]="'id'" [label]="'Id'"  [sortable]="true"  />
-    </paginationTableColumn>
+<div class="table-responsive">
 
-    <paginationTableColumn>
-        <paginationTableProperty [name]="'firstname'" [label]="'Frist Name'"    />
-        <paginationTableProperty [name]="'lastname'" [label]="'Last Name'" [sortable]="true"   />
-    </paginationTableColumn>
-    
-     <paginationTableColumn>
-        <paginationTableProperty [name]="'age'" [label]="'Age'"  [sortable]="true"  />
-    </paginationTableColumn>
+	<table-elements-count [page]="personPage"></table-elements-count>
 
-</paginationTable>
+	<table-pagination [table]="self" [page]="personPage"></table-pagination>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th><table-sort [table]="self" [page]="personPage" [label]="'First Name'" [property]="'firstname'" /></th>
+				<th><table-sort [table]="self" [page]="personPage" [label]="'Last Name'" [property]="'lastname'" /></th>
+				<th><table-sort [table]="self" [page]="personPage" [label]="'Age'" [property]="'age'" /></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ng-for="#person of personPage.content">
+				<td>{{person.firstname}}</td>
+				<td>{{person.lastname}}</td>
+				<td>{{person.age}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+</div>
+
+</template>

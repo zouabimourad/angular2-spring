@@ -1,0 +1,13 @@
+<div>
+ Page {{page.number+1}} / {{page.totalPages}}
+</div>
+
+<nav>
+  <ul class="pager">
+    <li *ng-if="!page.first"><a  href="#" (click)="fetchPreviousPage()">Previous</a></li>
+    <li *ng-if="!page.last"><a href="#" (click)="fetchNextPage()" >Next</a></li>
+  </ul>
+</nav>
+
+
+

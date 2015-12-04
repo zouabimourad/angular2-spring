@@ -1,34 +1,35 @@
-import {ComponentAnnotation as Component, ViewAnnotation as View, NgIf , NgFor} from 'angular2/angular2';
-import {webServiceEndpoint} from 'constants'
-import {PersonService} from 'service/personService'
+import { CORE_DIRECTIVES} from 'angular2/angular2';
+import {Component} from 'angular2/angular2';
+import {webServiceEndpoint, defaultItemsCountPerPage} from 'app/constants'
+import {PersonService} from 'app/service/personService';
 
-import {PaginationTable ,  PaginationTableDataProvider, PaginationTableColumn , PaginationTableProperty} from 'app/paginationTable'
-import {Injectable} from 'angular2/angular2';
+import {PaginationPage, PaginationPropertySort} from 'app/common/pagination';
+import {tableDirectives, Table} from 'app/components/table/table';
+import {showLoading, hideLoading} from "app/common/loader";
+
 
 @Component({
-    selector: 'app'
-})
-@View({
+    selector: 'app',
     templateUrl: 'app/app.html',
-    directives: [NgIf , NgFor ,  PaginationTable , PaginationTableColumn , PaginationTableProperty]
+    directives: [CORE_DIRECTIVES, tableDirectives]
 })
-export class App {
+export class App implements Table {
 
-    personProvider : PersonProvider;
+    personPage: any;
 
-    constructor ( ) {
-        this.personProvider = new PersonProvider
+    self: App;
+
+    constructor(private personService: PersonService) {
+        let observable: Rx.Observable<PaginationPage<ContratDTO>> = this.fetchPage(0, defaultItemsCountPerPage, null);
+        showLoading();
+        observable.subscribe(() => {}, hideLoading, hideLoading);
+        this.self = this;
+    }
+
+    fetchPage(pageNumber: number, pageSize: number, sort: PaginationPropertySort): Rx.Observable<PaginationPage<ContratDTO>> {
+        let observable: Rx.Observable<PaginationPage<any>> = this.personService.fetchAllPersons(pageNumber, pageSize, sort);
+        observable.subscribe(personPage => this.personPage = personPage);
+        return observable;
     }
 }
 
-export class PersonProvider  {
-    personService : PersonService;
-
-    constructor () {
-        this.personService = new PersonService();
-    }
-
-    fetchPage(pageNumber : number, size : number , sort : Array<PaginationTablePropertySort>) {
-        return this.personService.fetchAllPersons(pageNumber, size, sort);
-    }
-}

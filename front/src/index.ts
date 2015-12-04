@@ -1,11 +1,7 @@
-import { bootstrap } from 'angular2/angular2';
-import { RootRouter } from 'angular2/src/router/router';
-import { Pipeline } from 'angular2/src/router/pipeline';
-import { bind } from 'angular2/di';
-import { Router } from 'angular2/router';
-import { PipeRegistry } from 'angular2/change_detection';
+/// <reference path="../typings/tsd.d.ts" />
 
+import {bootstrap,provide, bind, CORE_DIRECTIVES, Injectable} from 'angular2/angular2';
+import {PersonService} from 'app/service/personService';
 import { App } from 'app/app';
-import {routerInjectables} from 'angular2/router';
 
-bootstrap(App, [routerInjectables]);
+bootstrap(App , [PersonService]);

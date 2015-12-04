@@ -4,21 +4,25 @@
     <meta charset="UTF-8">
 
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-
-    <!-- ES6-related imports -->
+    <link href="css/font-awesome.css" rel="stylesheet">
+    
+    <script src="lib/jquery.min.js"></script>    
     <script src="lib/traceur-runtime.js"></script>
-    <script src="lib/es6-module-loader-sans-promises.src.js"></script>
-    <script src="lib/extension-register.js"></script>
-    <script>
-        register(System);
-    </script>
-    <script src="lib/Reflect.js"></script>
+    <script src="lib/system.js"></script>
 
+    <script>
+    System.config({
+        defaultJSExtensions: true
+    });
+    $(function () {
+        System.import('./index');
+    });
+    
+    </script>
+    
     <!-- Angular2-related imports -->
-    <script src="lib/zone.js"></script>
-    <script src="lib/long-stack-trace-zone.js"></script>
-    <script src="lib/angular2.js"></script>
-    <script src="lib/router.js"></script>
+    <script src="lib/angular2.dev.js"></script>
+    <script src="lib/rx.all.min.js"></script>
 
     <!-- Libraries for example -->
     <script type="text/javascript" src="lib/jquery.min.js"></script>
@@ -33,9 +37,5 @@
   </div>
 </body>
 
-<!-- Application bootstrap logic -->
-<script>
-    System.import('index').catch(console.log.bind(console));
-</script>
 
 </html>
