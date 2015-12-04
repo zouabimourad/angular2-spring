@@ -8,7 +8,7 @@ export interface PaginationPage<T> {
     last?: boolean;
     first?: boolean;
     number: number;
-    size: number;
+    size: number;PaginationPropertySort
     totalPages? : number;
     itemsPerPage?: number;
     sort?: Array<PaginationPropertySort>;

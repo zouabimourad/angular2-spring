@@ -4,7 +4,6 @@ export function showLoading() {
 
 export function hideLoading() {
 	console.log("loaded");
-    
 }
 
 
