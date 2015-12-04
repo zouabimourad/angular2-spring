@@ -16,6 +16,7 @@ export class App implements Table {
     personPage: any;
     self: App;
 
+
     constructor(private personService: PersonService) {
         let observable: Rx.Observable<PaginationPage<any>> = this.fetchPage(0, defaultItemsCountPerPage, null);
         showLoading();

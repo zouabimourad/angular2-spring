@@ -8,8 +8,8 @@
     "removeComments": true,
     "noLib": false,
     "emitDecoratorMetadata": true,
-    "sourceMap": true,   
-    "experimentalDecorators" : true
+    "experimentalDecorators": true,
+    "sourceMap": true
   },
   "exclude": [
     "node_modules"

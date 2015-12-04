@@ -12,7 +12,7 @@ You'll need Maven 3+ and Java  7
 * `npm install` to install Node packages
 * `bower install` to install Bower packages ( run `npm install -g bower` if you don't have Bower already installed )
 
-## Execute
+## Run
 
 ### The Back End
 
