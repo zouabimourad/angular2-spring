@@ -3,6 +3,7 @@ package net.mzouabi.ng2.server.mvc;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
+import net.mzouabi.ng2.server.dto.PersonDTO;
 import net.mzouabi.ng2.server.model.Person;
 import net.mzouabi.ng2.server.repository.PersonRepository;
 import net.mzouabi.ng2.server.service.PersonService;
@@ -31,9 +32,9 @@ public class PersonController {
 	PersonRepository personRepository;
 
 	@RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Page<Person>> findAllPerson(Pageable pageable, HttpServletRequest req) {
+	public ResponseEntity<Page<PersonDTO>> findAllPerson(Pageable pageable, HttpServletRequest req) {
 
-		Page<Person> page = personService.findPersons(pageable);
+		Page<PersonDTO> page = personService.findPersons(pageable);
 
 		return new ResponseEntity<>(page, HttpStatus.OK);
 	}

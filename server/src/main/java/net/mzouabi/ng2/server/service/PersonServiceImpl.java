@@ -2,6 +2,8 @@ package net.mzouabi.ng2.server.service;
 
 import javax.inject.Inject;
 
+import net.mzouabi.ng2.server.dto.PersonDTO;
+import net.mzouabi.ng2.server.mapper.PersonMapper;
 import net.mzouabi.ng2.server.model.Person;
 import net.mzouabi.ng2.server.repository.PersonRepository;
 
@@ -17,8 +19,11 @@ public class PersonServiceImpl implements PersonService {
 	@Inject
 	PersonRepository personRepository;
 
+	@Inject
+	PersonMapper personMapper;
+
 	@Override
-	public Page<Person> findPersons(Pageable pageable) {
-		return personRepository.findAll(pageable);
+	public Page<PersonDTO> findPersons(Pageable pageable) {
+		return personRepository.findAll(pageable).map( person -> personMapper.toDTO(person));
 	}
 }

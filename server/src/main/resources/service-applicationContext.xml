@@ -9,6 +9,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
 		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
 	<context:component-scan base-package="net.mzouabi.ng2.server.service" />
+	<context:component-scan base-package="net.mzouabi.ng2.server.mapper" />
 	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
 		<property name="cacheManager" ref="ehcacheManager" />
 	</bean>

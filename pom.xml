@@ -8,7 +8,7 @@
 	<name>ng2 - ROOT</name>
 	<properties>
 		<encoding>UTF-8</encoding>
-		<jdk.version>1.7</jdk.version>
+		<jdk.version>1.8</jdk.version>
 		<spring.version>4.1.1.RELEASE</spring.version>
 		<hibernate.version>4.3.10.Final</hibernate.version>
 		<querydsl.version>3.6.3</querydsl.version>
