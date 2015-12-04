@@ -50,16 +50,13 @@ gulp.task('html', function () {
         .pipe(gulp.dest('dist'));
 });
 
-
 gulp.task('css', function () {
     return gulp.src(PATHS.src.css).pipe(gulp.dest('dist'));
 });
 
-
 gulp.task('fonts', function () {
     return gulp.src(PATHS.src.fonts).pipe(gulp.dest('dist/fonts'));
 });
-
 
 gulp.task('libs', function () {
     var size = require('gulp-size');
@@ -75,7 +72,7 @@ gulp.task('play', [ 'default'], function () {
     var serveStatic = require('serve-static');
     var open = require('open');
 
-    var port = 9000, app;
+    var port = 8888, app;
 
     gulp.watch(PATHS.src.html, ['html']);
     gulp.watch(PATHS.src.ts, ['ts']);

@@ -1,8 +1,6 @@
 {
-  "name": "ng2-demo",
-
-  "devDependencies": {
-     
+  "name": "angular2-spring",
+  "devDependencies": {     
     "bower": "1.6.5",
     "connect": "^3.3.4",
     "del": "~1.1.1",
@@ -34,8 +32,6 @@
     "angular2": "2.0.0-alpha.46",
     "rx": "^3.0.1",
     "systemjs": "0.19.3",
-    "traceur": "0.0.91",
-    "whatwg-fetch": "~0.7.0",
-    "when": "~3.7.3"
+    "traceur": "0.0.91"
   }
 }
