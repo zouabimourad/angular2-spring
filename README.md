@@ -5,7 +5,7 @@ This example shows how to do a paginated table with Angular 2 and Spring ( RestC
 
 ### The Back End
 
-You'll need Maven 3+ and Java  7 
+You'll need Maven 3+ and Java 8
 
 ### The Front End
 
