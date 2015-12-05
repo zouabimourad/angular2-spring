@@ -1,7 +1,5 @@
 package net.mzouabi.ng2.server.config.mvc;
 
-import java.util.List;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -16,8 +14,10 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
+import java.util.List;
+
 @Configuration
-@Import({ RepositoryRestMvcConfig.class, SwaggerConfig.class })
+@Import({SwaggerConfig.class})
 @EnableWebMvc
 @ComponentScan(basePackages = { "net.mzouabi.ng2.server.mvc" })
 public class DispatcherServletConfig extends WebMvcConfigurerAdapter {

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MainController {
 
-	@RequestMapping("/swagger-ui")
+	@RequestMapping("/swagger")
 	public String getSwaggerUIPage() {
 		return "swagger";
 	}
