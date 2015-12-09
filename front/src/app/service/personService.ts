@@ -3,15 +3,14 @@ import {PaginationPage, PaginationPropertySort} from 'app/common/pagination';
 
 export class PersonService {
 
-    fetchAllPersons(page:number, pageSize:number, sort : PaginationPropertySort) {
-        var sortQuery = "";
-        if (sort != null) {            
-            sortQuery += "&sort=" + sort.property + "," + sort.direction;            
+    fetchAllPersons(page:number, pageSize:number, sort:PaginationPropertySort) {
+        let params:any = {size: pageSize, page: page};
+        if (sort != null) {
+            params.sort = sort.property + "," + sort.direction;
         }
         return <Rx.Observable<PaginationPage<any>>> Rx.Observable.fromPromise(
+            $.ajax({dataType: "json", url: webServiceEndpoint + '/person', data: params})
 
-            $.ajax({ dataType: "json", url: webServiceEndpoint + '/person?size=' + pageSize + '&page=' + page + sortQuery })
-                    
         ).publish().refCount();
     }
 }
