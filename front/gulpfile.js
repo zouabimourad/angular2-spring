@@ -18,13 +18,13 @@ var PATHS = {
         fonts: 'src/fonts/*.*'
     },
     lib: [
-        'node_modules/angular2/bundles/angular2.dev.js',
-		'node_modules/angular2/bundles/router.dev.js',
-        'node_modules/traceur/bin/traceur-runtime.js',        
-        'node_modules/systemjs/dist/system.*',        
-        'node_modules/systemjs/dist/system-*.*',
+        'node_modules/angular2/bundles/*.js',
+        'node_modules/angular2/bundles/*.map',
+        'node_modules/systemjs/dist/*.js',
+        'node_modules/systemjs/dist/*.map',
+        'node_modules/es6-shim/*.js',
+        'node_modules/rxjs/bundles/*.js',
         'bower_components/jquery/jquery.min.js',
-        'node_modules/rx/dist/rx.all.min.js',
         'bower_components/bootstrap/dist/js/bootstrap.min.js'
     ]
 };

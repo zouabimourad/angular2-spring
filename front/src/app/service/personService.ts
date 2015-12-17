@@ -1,5 +1,6 @@
-import {webServiceEndpoint} from 'app/constants'
-import {PaginationPage, PaginationPropertySort} from 'app/common/pagination';
+import {webServiceEndpoint} from '../constants'
+import {PaginationPage, PaginationPropertySort} from '../common/pagination';
+import * as Rx from "rxjs/Rx";
 
 export class PersonService {
 

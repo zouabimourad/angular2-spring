@@ -1,9 +1,10 @@
-import {CORE_DIRECTIVES} from 'angular2/angular2';
-import {Component, View, OnChanges, Observable, EventEmitter, bootstrap, Input} from 'angular2/angular2';
-import {webServiceEndpoint} from 'constants'
-import {PaginationPage, PaginationPropertySort} from 'app/common/pagination'
-import {Injectable } from 'angular2/angular2';
-import {showLoading, hideLoading } from "app/common/loader"
+import {CORE_DIRECTIVES} from 'angular2/common';
+import {Component, View, OnChanges, EventEmitter, Input} from 'angular2/core';
+import {webServiceEndpoint} from '../../constants'
+import {PaginationPage, PaginationPropertySort} from '../../common/pagination'
+import * as Rx from "rxjs/Rx";
+import {Injectable } from 'angular2/core';
+import {showLoading, hideLoading } from "../../common/loader"
 
 export interface Table {
 
@@ -106,7 +107,7 @@ export class TableSort<T> implements OnChanges {
     sortAscClass:boolean = false;
     sortDescClass:boolean = false;
 
-    onChanges(changes) {
+    ngOnChanges(changes) {
 
         if (changes['page']) {
 

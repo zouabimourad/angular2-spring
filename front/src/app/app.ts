@@ -1,10 +1,11 @@
-import {CORE_DIRECTIVES} from 'angular2/angular2';
-import {Component} from 'angular2/angular2';
-import {webServiceEndpoint, defaultItemsCountPerPage} from 'app/constants'
-import {PersonService} from 'app/service/personService';
-import {PaginationPage, PaginationPropertySort} from 'app/common/pagination';
-import {tableDirectives, Table} from 'app/components/table/table';
-import {showLoading, hideLoading} from "app/common/loader";
+import {CORE_DIRECTIVES} from 'angular2/common';
+import {Component} from 'angular2/core';
+import * as Rx from "rxjs/Rx";
+import {webServiceEndpoint, defaultItemsCountPerPage} from './constants'
+import {PersonService} from './service/personService';
+import {PaginationPage, PaginationPropertySort} from './common/pagination';
+import {tableDirectives, Table} from './components/table/table';
+import {showLoading, hideLoading} from "./common/loader";
 
 @Component({
     selector: 'app',
