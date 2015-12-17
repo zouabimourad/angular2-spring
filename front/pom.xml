@@ -19,53 +19,48 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
+				<groupId>com.github.eirslett</groupId>
+				<artifactId>frontend-maven-plugin</artifactId>
+				<version>0.0.26</version>
 				<executions>
 					<execution>
-						<id>exec-npm-install</id>
-						<phase>generate-sources</phase>
-						<configuration>
-							<executable>npm</executable>
-							<arguments>
-								<argument>install</argument>
-							</arguments>
-						</configuration>
+						<id>install node and npm</id>
 						<goals>
-							<goal>exec</goal>
+							<goal>install-node-and-npm</goal>
 						</goals>
+						<configuration>
+							<nodeVersion>v4.2.3</nodeVersion>
+							<npmVersion>2.7.6</npmVersion>
+						</configuration>
 					</execution>
 					<execution>
-						<id>exec-bower-install</id>
-						<phase>generate-sources</phase>
-						<configuration>
-							<executable>bower</executable>
-							<arguments>
-								<argument>install</argument>
-							</arguments>
-						</configuration>
+						<id>npm install</id>
 						<goals>
-							<goal>exec</goal>
+							<goal>npm</goal>
 						</goals>
+						<configuration>
+							<arguments>install</arguments>
+						</configuration>
 					</execution>
 					<execution>
-						<id>exec-tsd-install</id>
-						<phase>generate-sources</phase>
-						<configuration>
-							<executable>tsd</executable>
-							<arguments>
-								<argument>update</argument>
-							</arguments>
-						</configuration>
+						<id>bower install</id>
 						<goals>
-							<goal>exec</goal>
+							<goal>bower</goal>
 						</goals>
+						<configuration>
+							<arguments>install</arguments>
+						</configuration>
+					</execution>
+					<execution>
+						<id>gulp</id>
+						<goals>
+							<goal>gulp</goal>
+						</goals>
+						<configuration>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
-
 		</plugins>
 	</build>
-	<dependencies>
-	</dependencies>
 </project>
