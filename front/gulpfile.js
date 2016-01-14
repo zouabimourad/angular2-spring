@@ -14,8 +14,7 @@ var PATHS = {
         root: 'src',
         ts: 'src/**/*.ts',
         html: 'src/**/*.html',
-        css: 'src/**/*.css',
-        fonts: 'src/fonts/*.*'
+        css: 'src/**/*.css'
     },
     lib: [
         'node_modules/angular2/bundles/*.js',
@@ -24,12 +23,11 @@ var PATHS = {
         'node_modules/systemjs/dist/*.map',
         'node_modules/es6-shim/*.js',
         'node_modules/rxjs/bundles/*.js',
-        'bower_components/jquery/jquery.min.js',
-        'bower_components/bootstrap/dist/js/bootstrap.min.js'
+        'bower_components/**/*',
     ]
 };
 
-gulp.task('clean', function(done) {
+gulp.task('clean', function (done) {
     del(['dist'], done);
 });
 
@@ -37,7 +35,7 @@ var tsProject = tsc.createProject('tsconfig.json', {typescript: require('typescr
 
 gulp.task('ts', function () {
     return gulp.src(PATHS.src.ts)
-        .pipe(plumber())        
+        .pipe(plumber())
         .pipe(sourcemaps.init())
         .pipe(tsc(tsProject))
         .pipe(sourcemaps.write('source'))
@@ -53,9 +51,6 @@ gulp.task('css', function () {
     return gulp.src(PATHS.src.css).pipe(gulp.dest('dist'));
 });
 
-gulp.task('fonts', function () {
-    return gulp.src(PATHS.src.fonts).pipe(gulp.dest('dist/fonts'));
-});
 
 gulp.task('libs', function () {
     var size = require('gulp-size');
@@ -64,7 +59,7 @@ gulp.task('libs', function () {
         .pipe(gulp.dest('dist/lib'));
 });
 
-gulp.task('play', [ 'default'], function () {
+gulp.task('play', ['default'], function () {
 
     var http = require('http');
     var connect = require('connect');
@@ -83,4 +78,4 @@ gulp.task('play', [ 'default'], function () {
     });
 });
 
-gulp.task('default', ['ts',  'css',  'fonts', 'html',  'libs']);
+gulp.task('default', ['ts', 'css', 'html', 'libs']);
