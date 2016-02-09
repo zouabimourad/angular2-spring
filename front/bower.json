@@ -7,7 +7,8 @@
   "ignore": [],
   "dependencies": {
     "jquery": "~1.10.2",
-    "bootstrap": "~3.1.1"
+    "bootstrap": "~3.1.1",
+    "components-font-awesome": "4.5.0"
   },
   "private": true
 }
