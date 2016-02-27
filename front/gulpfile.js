@@ -21,6 +21,7 @@ var PATHS = {
         'node_modules/angular2/bundles/*.map',
         'node_modules/systemjs/dist/*.js',
         'node_modules/systemjs/dist/*.map',
+        'node_modules/reflect-metadata/*.js',
         'node_modules/es6-shim/*.js',
         'node_modules/rxjs/bundles/*.js',
         'bower_components/**/*',
