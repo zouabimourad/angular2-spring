@@ -9,4 +9,10 @@ public interface PersonService {
 
 	public Page<PersonDTO> findPersons(Pageable pageable);
 
+	public void updatePerson(PersonDTO personDTO);
+
+	public void savePerson(PersonDTO personDTO);
+
+	public void deletePerson(Long id);
+
 }

@@ -1,15 +1,19 @@
 package net.mzouabi.ng2.server.dto;
 
+import java.util.Date;
+
 /**
  * Created by mouradzouabi on 04/12/15.
  */
-public class PersonDTO{
+public class PersonDTO extends  AbstractDTO{
 
     String firstname;
 
     String lastname;
 
     Integer age;
+
+    Date dateOfBirth;
 
     public String getFirstname() {
         return firstname;
@@ -33,5 +37,13 @@ public class PersonDTO{
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 }
