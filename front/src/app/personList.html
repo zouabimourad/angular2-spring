@@ -1,0 +1,28 @@
+<template [ngIf]="personPage != null">
+
+    <div class="table-responsive">
+
+        <table-elements-count [page]="personPage"></table-elements-count>
+
+        <table-pagination [table]="self" [page]="personPage"></table-pagination>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th><table-sort [table]="self" [page]="personPage" [label]="'First Name'" [property]="'firstname'" ></table-sort></th>
+                <th><table-sort [table]="self" [page]="personPage" [label]="'Last Name'" [property]="'lastname'" ></table-sort></th>
+                <th><table-sort [table]="self" [page]="personPage" [label]="'Age'" [property]="'age'" ></table-sort></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="#person of personPage.content">
+                <td>{{person.firstname}}</td>
+                <td>{{person.lastname}}</td>
+                <td>{{person.age}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</template>

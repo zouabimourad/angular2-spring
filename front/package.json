@@ -1,6 +1,6 @@
 {
   "name": "angular2-spring",
-  "devDependencies": {     
+  "devDependencies": {
     "bower": "1.6.5",
     "connect": "^3.3.4",
     "del": "~1.1.1",
@@ -15,7 +15,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-size": "2.0.0",
     "gulp-sourcemaps": "~1.5.2",
-    "gulp-typescript": "^2.6.0",    
+    "gulp-typescript": "^2.6.0",
     "typescript": "1.6.2",
     "open": "0.0.5",
     "mkpath": "~0.1.0",
