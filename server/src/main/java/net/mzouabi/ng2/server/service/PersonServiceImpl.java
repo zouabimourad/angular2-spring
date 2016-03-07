@@ -4,6 +4,8 @@ import net.mzouabi.ng2.server.dto.PersonDTO;
 import net.mzouabi.ng2.server.mapper.PersonMapper;
 import net.mzouabi.ng2.server.model.Person;
 import net.mzouabi.ng2.server.repository.PersonRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -15,31 +17,43 @@ import javax.inject.Inject;
 @Transactional
 public class PersonServiceImpl implements PersonService {
 
-	@Inject
-	PersonRepository personRepository;
+    final static Logger LOG = LoggerFactory.getLogger(PersonServiceImpl.class);
 
-	@Inject
-	PersonMapper personMapper;
+    @Inject
+    PersonRepository personRepository;
 
-	@Override
-	public Page<PersonDTO> findPersons(Pageable pageable) {
-		return personRepository.findAll(pageable).map( person -> personMapper.toDTO(person));
-	}
+    @Inject
+    PersonMapper personMapper;
 
-	@Override
-	public void updatePerson(PersonDTO personDTO) {
-		Person person = personRepository.findOne(personDTO.getId());
-		personMapper.mapToEntity(personDTO,person);
-	}
+    @Override
+    public Page<PersonDTO> findPersons(Pageable pageable) {
+        return personRepository.findAll(pageable).map(person -> personMapper.toDTO(person));
+    }
 
-	@Override
-	public void savePerson(PersonDTO personDTO) {
-		Person person = personMapper.toEntity(personDTO);
-		personRepository.save(person);
-	}
+    @Override
+    public PersonDTO getPerson(Long id) {
+        Person person = personRepository.getOne(id);
+        if (person == null) {
+            return null;
+        } else {
+            return personMapper.toDTO(person);
+        }
+    }
 
-	@Override
-	public void deletePerson(Long id) {
-		personRepository.delete(id);
-	}
+    @Override
+    public void updatePerson(PersonDTO personDTO) {
+        Person person = personRepository.findOne(personDTO.getId());
+        personMapper.mapToEntity(personDTO, person);
+    }
+
+    @Override
+    public void savePerson(PersonDTO personDTO) {
+        Person person = personMapper.toEntity(personDTO);
+        personRepository.save(person);
+    }
+
+    @Override
+    public void deletePerson(Long id) {
+        personRepository.delete(id);
+    }
 }

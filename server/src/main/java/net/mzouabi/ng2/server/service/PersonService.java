@@ -7,12 +7,14 @@ import org.springframework.data.domain.Pageable;
 
 public interface PersonService {
 
-	public Page<PersonDTO> findPersons(Pageable pageable);
+    Page<PersonDTO> findPersons(Pageable pageable);
 
-	public void updatePerson(PersonDTO personDTO);
+    PersonDTO getPerson(Long id);
 
-	public void savePerson(PersonDTO personDTO);
+    void updatePerson(PersonDTO personDTO);
 
-	public void deletePerson(Long id);
+    void savePerson(PersonDTO personDTO);
+
+    void deletePerson(Long id);
 
 }

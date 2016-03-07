@@ -30,15 +30,16 @@ export class TablePagination<T> {
     @Input() table:Table;
     @Input() page:PaginationPage<T>;
 
-    fetchPageNumber($event) {
+    get pagesIndexes():Array<number> {
+        let pagesIndexes:Array<number> = [];
+        for (let i = 0; i < this.page.totalPages; i++) {
+            pagesIndexes.push(i + 1);
+        }
+        return pagesIndexes;
+    }
 
-        if ($event.which !== 13) {
-            return;
-        }
-        if (isNaN($event.target.value)) {
-            return;
-        }
-        let observable:Rx.Observable<any> = this.table.fetchPage(+$event.target.value - 1, this.page.size, this.getSort());
+    fetchPageNumber(pageNumer:number) {
+        let observable:Rx.Observable<any> = this.table.fetchPage(pageNumer - 1, this.page.size, this.getSort());
         if (observable != null) {
             showLoading();
             observable.subscribe(() => {
@@ -60,6 +61,10 @@ export class TablePagination<T> {
     }
 
     fetchNextPage() {
+        if (this.page.number + 1 >= this.page.totalPages) {
+            return;
+        }
+
         let observable:Rx.Observable<any> = this.table.fetchPage(this.page.number + 1, this.page.size, this.getSort());
         if (observable != null) {
             showLoading();
@@ -71,6 +76,10 @@ export class TablePagination<T> {
     }
 
     fetchPreviousPage() {
+        if (this.page.number == 0) {
+            return;
+        }
+
         let observable:Rx.Observable<any> = this.table.fetchPage(this.page.number - 1, this.page.size, this.getSort());
         if (observable != null) {
             showLoading();
