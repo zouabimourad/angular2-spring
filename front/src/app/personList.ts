@@ -48,8 +48,10 @@ export class PersonListComponent implements Table {
         let observable:Rx.Observable<PaginationPage<any>> = this.personService.deletePerson(person.id);
         showLoading();
         observable.switchMap(() => {
+
             return this.fetchPage(0, defaultItemsCountPerPage, null);
-        }).subscribe(() => {
+
+        }).subscribe(r => {
         }, hideLoading, hideLoading);
     }
 }

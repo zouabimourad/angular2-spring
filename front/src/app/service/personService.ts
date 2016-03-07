@@ -20,9 +20,9 @@ export class PersonService {
         ).publish().refCount();
     }
 
-    deletePerson(id:number):Rx.Observable<any> {
-        return <Rx.Observable<any>> Rx.Observable.fromPromise(
-            $.ajax({dataType: "json", method: "DELETE", url: webServiceEndpoint + `/person/${id}`})
+    deletePerson(id:number):Rx.Observable {
+        return <Rx.Observable> Rx.Observable.fromPromise(
+            $.ajax({method: "DELETE", url: webServiceEndpoint + `/person/${id}`})
         ).publish().refCount();
     }
 }
