@@ -1,8 +1,6 @@
 import {CORE_DIRECTIVES} from 'angular2/common';
 import {Component} from 'angular2/core';
-import {RouteConfig} from "angular2/router";
-import {ROUTER_DIRECTIVES} from "angular2/router";
-import * as Rx from "rxjs/Rx";
+import {ROUTER_DIRECTIVES,RouteConfig} from "angular2/router";
 import {PersonListComponent} from "./personList";
 import {PersonComponent} from "./person";
 

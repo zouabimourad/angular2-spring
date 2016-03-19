@@ -1,17 +1,13 @@
 import {CORE_DIRECTIVES} from 'angular2/common';
-import {Component} from 'angular2/core';
-import {ROUTER_DIRECTIVES} from "angular2/router";
+import {Component,Inject} from 'angular2/core';
+import {ROUTER_DIRECTIVES,Router,RouteParams,Location} from "angular2/router";
 import * as Rx from "rxjs/Rx";
 import {webServiceEndpoint, defaultItemsCountPerPage} from './constants'
-import {PersonService} from './service/personService';
-import {PaginationPage, PaginationPropertySort} from './common/pagination';
-import {tableDirectives, Table} from './components/table/table';
 import {showLoading, hideLoading} from "./common/loader";
-
+import {tableDirectives, Table} from './components/table/table';
+import {PaginationPage, PaginationPropertySort} from './common/pagination';
+import {PersonService} from './service/personService';
 import {PersonListComponent} from "./personList";
-import {RouteParams} from "angular2/router";
-import {Inject} from "angular2/core";
-import {Router} from "angular2/router";
 
 @Component({
     selector: 'app',
@@ -24,12 +20,11 @@ export class PersonComponent {
 
     person:any;
 
-    constructor(@Inject(RouteParams) private  routeParams:RouteParams, @Inject(Router) private router:Router, private personService:PersonService) {
+    constructor(@Inject(RouteParams) private  routeParams:RouteParams, @Inject(Router) private router:Router, @Inject(Router) private location:Location, private personService:PersonService) {
 
     }
 
     ngOnInit() {
-        console.log(this.routeParams);
         var param = this.routeParams.params['personId'];
         this.personService.getPerson(Number(param)).subscribe(person => this.person = person);
     }
@@ -45,6 +40,6 @@ export class PersonComponent {
     }
 
     back() {
-        history.back();
+        this.location.back();
     }
 }
