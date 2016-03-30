@@ -17,13 +17,7 @@ var PATHS = {
         css: 'src/**/*.css'
     },
     lib: [
-        'node_modules/angular2/bundles/*.js',
-        'node_modules/angular2/bundles/*.map',
-        'node_modules/systemjs/dist/*.js',
-        'node_modules/systemjs/dist/*.map',
-        'node_modules/reflect-metadata/*.js',
-        'node_modules/es6-shim/*.js',
-        'node_modules/rxjs/bundles/*.js',
+        'node_modules/*(angular2|zonz.js|rxjs|es6-shim|systemjs)/**/*.*',
         'bower_components/**/*',
     ]
 };
@@ -56,7 +50,6 @@ gulp.task('css', function () {
 gulp.task('libs', function () {
     var size = require('gulp-size');
     return gulp.src(PATHS.lib)
-        .pipe(size({showFiles: true, gzip: true}))
         .pipe(gulp.dest('dist/lib'));
 });
 

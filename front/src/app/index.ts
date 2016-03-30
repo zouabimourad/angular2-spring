@@ -7,8 +7,8 @@ import {ROUTER_PROVIDERS} from 'angular2/router';
 import {LocationStrategy} from "angular2/router";
 import {HashLocationStrategy} from "angular2/router";
 
-import {PersonService} from './app/service/personService';
-import {App} from './app/app';
+import {PersonService} from './service/personService';
+import {App} from './app';
 
 bootstrap(App, [ROUTER_PROVIDERS, provide(LocationStrategy,
     {useClass: HashLocationStrategy}),PersonService]);
