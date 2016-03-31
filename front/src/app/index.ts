@@ -1,15 +1,12 @@
-/// <reference path="../typings/tsd.d.ts" />
+/// <reference path="../../typings/tsd.d.ts" />
 
-import {provide, bind, Injectable} from 'angular2/core';
+import {provide} from 'angular2/core';
 import {bootstrap} from 'angular2/platform/browser';
 
-import {ROUTER_PROVIDERS} from 'angular2/router';
-import {LocationStrategy} from "angular2/router";
-import {HashLocationStrategy} from "angular2/router";
-
+import {ROUTER_PROVIDERS,LocationStrategy,HashLocationStrategy} from 'angular2/router';
 import {PersonService} from './service/personService';
 import {App} from './app';
 
-bootstrap(App, [ROUTER_PROVIDERS, provide(LocationStrategy,
+bootstrap(App, [ROUTER_PROVIDERS,provide(LocationStrategy,
     {useClass: HashLocationStrategy}),PersonService]);
 

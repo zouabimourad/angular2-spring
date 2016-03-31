@@ -10,7 +10,7 @@ import {PersonComponent} from "./person";
     directives: [CORE_DIRECTIVES, ROUTER_DIRECTIVES, PersonListComponent]
 })
 @RouteConfig([
-    {path: '/', name: 'PersonList', component: PersonListComponent, useAsDefault: true},
+    {path: '/', name: 'PersonList', component: PersonListComponent  },
     {path: '/person', name: 'Person', component: PersonComponent}
 ])
 export class App {
