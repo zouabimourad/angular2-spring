@@ -1,9 +1,9 @@
-import {CORE_DIRECTIVES} from 'angular2/common';
-import {Component, View, OnChanges, EventEmitter, Input} from 'angular2/core';
+import {CORE_DIRECTIVES} from '@angular/common';
+import {Component, OnChanges, EventEmitter, Input} from '@angular/core';
 import {webServiceEndpoint} from '../../constants'
 import {PaginationPage, PaginationPropertySort} from '../../common/pagination'
 import * as Rx from "rxjs/Rx";
-import {Injectable } from 'angular2/core';
+import {Injectable } from '@angular/core';
 import {showLoading, hideLoading } from "../../common/loader"
 
 export interface Table {

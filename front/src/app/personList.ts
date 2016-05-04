@@ -1,6 +1,6 @@
-import {CORE_DIRECTIVES} from 'angular2/common';
-import {Component,Inject} from 'angular2/core';
-import {ROUTER_DIRECTIVES,Router} from "angular2/router";
+import {CORE_DIRECTIVES} from '@angular/common';
+import {Component,Inject} from '@angular/core';
+import {ROUTER_DIRECTIVES,Router} from "@angular/router";
 import * as Rx from "rxjs/Rx";
 import {webServiceEndpoint, defaultItemsCountPerPage} from './constants'
 import {PersonService} from './service/personService';
@@ -37,9 +37,7 @@ export class PersonListComponent implements Table {
     }
 
     goToDetails(person) {
-        this.router.navigateByInstruction(this.router.generate(['/Person', {
-            personId: person.id
-        }]));
+        this.router.navigate(['/person', {personId: person.id }]);
     }
 
     delete(person) {

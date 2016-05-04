@@ -13,11 +13,12 @@ var PATHS = {
     src: {
         root: 'src',
         ts: 'src/**/*.ts',
+        js: 'src/**/*.js',
         html: 'src/**/*.html',
         css: 'src/**/*.css'
     },
     lib: [
-        'node_modules/*(angular2|zone.js|rxjs|es6-shim|systemjs)/**/*.*',
+        'node_modules/*(@angular|angular2-in-memory-web-api|zone.js|reflect-metadata|rxjs|es6-shim|systemjs)/**/*.*',
         'bower_components/**/*',
     ]
 };
@@ -37,6 +38,11 @@ gulp.task('ts', function () {
         .pipe(gulp.dest('dist/'));
 });
 
+gulp.task('js', function () {
+    return gulp.src(PATHS.src.js)
+        .pipe(gulp.dest('dist'));
+});
+
 gulp.task('html', function () {
     return gulp.src(PATHS.src.html)
         .pipe(gulp.dest('dist'));
@@ -45,7 +51,6 @@ gulp.task('html', function () {
 gulp.task('css', function () {
     return gulp.src(PATHS.src.css).pipe(gulp.dest('dist'));
 });
-
 
 gulp.task('libs', function () {
     var size = require('gulp-size');
@@ -65,6 +70,7 @@ gulp.task('play', ['default'], function () {
     gulp.watch(PATHS.src.html, ['html']);
     gulp.watch(PATHS.src.ts, ['ts']);
     gulp.watch(PATHS.src.css, ['css']);
+    gulp.watch(PATHS.src.js, ['js']);
 
     app = connect().use(serveStatic(__dirname + '/dist'));  // serve everything that is static
     http.createServer(app).listen(port, function () {
@@ -72,4 +78,4 @@ gulp.task('play', ['default'], function () {
     });
 });
 
-gulp.task('default', ['ts', 'css', 'html', 'libs']);
+gulp.task('default', ['ts', 'js', 'css', 'html', 'libs']);

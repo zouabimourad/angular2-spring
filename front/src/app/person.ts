@@ -1,6 +1,6 @@
-import {CORE_DIRECTIVES} from 'angular2/common';
-import {Component,Inject} from 'angular2/core';
-import {ROUTER_DIRECTIVES,Router,RouteParams,Location} from "angular2/router";
+import {CORE_DIRECTIVES} from '@angular/common';
+import {Component,Inject} from '@angular/core';
+import {ROUTER_DIRECTIVES,Router,RouteSegment} from "@angular/router";
 import * as Rx from "rxjs/Rx";
 import {webServiceEndpoint, defaultItemsCountPerPage} from './constants'
 import {showLoading, hideLoading} from "./common/loader";
@@ -20,12 +20,12 @@ export class PersonComponent {
 
     person:any;
 
-    constructor(@Inject(RouteParams) private  routeParams:RouteParams, @Inject(Router) private router:Router, @Inject(Router) private location:Location, private personService:PersonService) {
+    constructor(private  routeParams:RouteSegment, private router:Router, private personService:PersonService) {
 
     }
 
     ngOnInit() {
-        var param = this.routeParams.params['personId'];
+        var param = this.routeParams.getParam('personId');
         this.personService.getPerson(Number(param)).subscribe(person => this.person = person);
     }
 
@@ -34,12 +34,12 @@ export class PersonComponent {
         showLoading();
         observable.subscribe(()=> {
         }, hideLoading, ()=> {
-            this.router.navigateByInstruction(this.router.generate(['/PersonList']));
+            this.router.navigate(['/']);
             hideLoading()
         });
     }
 
     back() {
-        this.location.back();
+        history.back();
     }
 }

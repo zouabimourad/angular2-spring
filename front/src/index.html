@@ -11,16 +11,17 @@
     <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <!-- 1. Load libraries -->
-    <!-- IE required polyfills, in this exact order -->
+    <!-- Polyfill(s) for older browsers -->
     <script src="lib/es6-shim/es6-shim.min.js"></script>
-    <script src="lib/systemjs/dist/system-polyfills.js"></script>
-    <script src="lib/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
 
-    <script src="lib/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="lib/zone.js/dist/zone.js"></script>
+    <script src="lib/reflect-metadata/Reflect.js"></script>
+
     <script src="lib/systemjs/dist/system.src.js"></script>
-    <script src="lib/rxjs/bundles/Rx.js"></script>
-    <script src="lib/angular2/bundles/angular2.dev.js"></script>
-    <script src="lib/angular2/bundles/router.min.js"></script>
+
+    <!-- 2. Configure SystemJS -->
+    <script src="systemjs.config.js"></script>
+
 
     <!-- 2. Configure SystemJS -->
     <script>
