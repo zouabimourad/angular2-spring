@@ -159,10 +159,7 @@ export class TableSort<T> implements OnChanges {
 
         if (observable != null) {
             showLoading();
-            observable.subscribe(() => {
-            }, () => {
-                hideLoading()
-            }, hideLoading);
+            observable.subscribe(() => {}, hideLoading, hideLoading);
         }
     }
 }

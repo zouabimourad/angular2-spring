@@ -15,7 +15,7 @@ import {showLoading, hideLoading} from "./common/loader";
 })
 export class PersonListComponent implements Table {
 
-    personPage:any;
+    personPage:PaginationPage<Person>;
     self:PersonListComponent;
 
     constructor(private personService:PersonService, @Inject(Router) private router:Router) {
@@ -25,13 +25,12 @@ export class PersonListComponent implements Table {
     ngOnInit() {
         let observable:Rx.Observable<PaginationPage<any>> = this.fetchPage(0, defaultItemsCountPerPage, null);
         showLoading();
-        observable.subscribe(() => {
-        }, hideLoading, hideLoading);
+        observable.subscribe(() => {}, hideLoading, hideLoading);
         this.self = this;
     }
 
-    fetchPage(pageNumber:number, pageSize:number, sort:PaginationPropertySort):Rx.Observable<PaginationPage<any>> {
-        let observable:Rx.Observable<PaginationPage<any>> = this.personService.findPersons(pageNumber, pageSize, sort);
+    fetchPage(pageNumber:number, pageSize:number, sort:PaginationPropertySort):Rx.Observable<PaginationPage<Person>> {
+        let observable:Rx.Observable<PaginationPage<Person>> = this.personService.findPersons(pageNumber, pageSize, sort);
         observable.subscribe(personPage => this.personPage = personPage);
         return observable;
     }
@@ -47,7 +46,6 @@ export class PersonListComponent implements Table {
 
             return this.fetchPage(0, defaultItemsCountPerPage, null);
 
-        }).subscribe(r => {
-        }, hideLoading, hideLoading);
+        }).subscribe(() => {}, hideLoading, hideLoading);
     }
 }

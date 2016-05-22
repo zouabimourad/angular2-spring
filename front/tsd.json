@@ -7,6 +7,12 @@
   "installed": {
     "jquery/jquery.d.ts": {
       "commit": "e5a27ea95e47b95333784f1f0d590127b4e39a89"
+    },
+    "rx/rx-lite.d.ts": {
+      "commit": "816f03f3e4a97c0f4b5dd12bb1302a1d3b8b9f7c"
+    },
+    "rx/rx.d.ts": {
+      "commit": "816f03f3e4a97c0f4b5dd12bb1302a1d3b8b9f7c"
     }
   }
 }

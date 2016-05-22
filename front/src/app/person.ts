@@ -18,7 +18,7 @@ export class PersonComponent {
 
     self:PersonListComponent;
 
-    person:any;
+    person:Person;
 
     constructor(private  routeParams:RouteSegment, private router:Router, private personService:PersonService) {
 
@@ -30,7 +30,7 @@ export class PersonComponent {
     }
 
     delete(person) {
-        let observable:Rx.Observable<PaginationPage<any>> = this.personService.deletePerson(person.id);
+        let observable:Rx.Observable<void> = this.personService.deletePerson(person.id);
         showLoading();
         observable.subscribe(()=> {
         }, hideLoading, ()=> {
