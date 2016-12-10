@@ -9,9 +9,9 @@ You'll need Maven 3+ and Java 8
 
 ### The Front End
 
+* `npm install -g angular-cli` to install angular 2 cli ( globally ) 
 * `npm install` to install Node packages
-* `bower install` to install Bower packages ( run `npm install -g bower` if you don't have Bower already installed )
-
+ 
 ## Run
 
 ### The Back End
@@ -20,7 +20,4 @@ You'll need Maven 3+ and Java 8
 
 ### The Front End
 
-* `gulp play`
-
-
-
+* `ng serve`

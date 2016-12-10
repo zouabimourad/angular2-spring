@@ -28,9 +28,9 @@
             <table class="table table-striped" cellspacing="0" cellpadding="0">
                 <thead>
                 <tr>
-                    <th><table-sort [table]="self" [page]="personPage" [label]="'First Name'" [property]="'firstname'" ></table-sort></th>
-                    <th><table-sort [table]="self" [page]="personPage" [label]="'Last Name'" [property]="'lastname'" ></table-sort></th>
-                    <th><table-sort [table]="self" [page]="personPage" [label]="'Age'" [property]="'age'" ></table-sort></th>
+                    <th><app-table-sort [table]="self" [page]="personPage" [label]="'First Name'" [property]="'firstname'" ></app-table-sort></th>
+                    <th><app-table-sort [table]="self" [page]="personPage" [label]="'Last Name'" [property]="'lastname'" ></app-table-sort></th>
+                    <th><app-table-sort [table]="self" [page]="personPage" [label]="'Age'" [property]="'age'" ></app-table-sort></th>
                     <th class="actions">Actions</th>
                 </tr>
                 </thead>
@@ -53,7 +53,7 @@
 
     </div> <!-- /#list -->
 
-    <table-pagination [table]="self" [page]="personPage"></table-pagination>
+    <app-table-pagination [table]="self" [page]="personPage"></app-table-pagination>
 
     <!-- Modal -->
     <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">

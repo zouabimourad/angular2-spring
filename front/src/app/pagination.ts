@@ -1,6 +1,9 @@
-
-
 // http://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/domain/Pageable.html
+
+export interface PaginationPropertySort {
+    direction: string;
+    property: string;
+}
 
 export interface PaginationPage<T> {
     content? : Array<T>;
@@ -13,7 +16,3 @@ export interface PaginationPage<T> {
     sort?: Array<PaginationPropertySort>;
 }
 
-export interface PaginationPropertySort {
-    direction: string;
-    property: string;
-}
