@@ -17,8 +17,7 @@
 		<guava.version>18.0</guava.version>
 	</properties>
 	<modules>
-		<module>server</module>
-		<module>front</module>
+		<module>server</module>		
 	</modules>
 	<build>
 		<pluginManagement>
