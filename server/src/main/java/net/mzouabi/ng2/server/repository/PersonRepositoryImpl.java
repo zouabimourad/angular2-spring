@@ -1,12 +1,11 @@
 package net.mzouabi.ng2.server.repository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
-import net.mzouabi.ng2.server.model.QPerson;
-
 import com.mysema.query.jpa.JPQLQuery;
 import com.mysema.query.jpa.impl.JPAQuery;
+import net.mzouabi.ng2.server.model.QPerson;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 public class PersonRepositoryImpl implements PersonRepositoryCustom {
 

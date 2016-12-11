@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
+
 @RestController
+@CrossOrigin
 @RequestMapping(value = "/api/person")
 public class PersonController {
 

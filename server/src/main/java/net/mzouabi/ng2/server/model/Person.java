@@ -1,6 +1,7 @@
 package net.mzouabi.ng2.server.model;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
@@ -13,8 +14,6 @@ public class Person extends AbstractEntity {
 	String lastname;
 
 	Integer age;
-
-	Date dateOfBirth;
 
 	public String getFirstname() {
 		return firstname;
@@ -38,13 +37,5 @@ public class Person extends AbstractEntity {
 
 	public void setAge(Integer age) {
 		this.age = age;
-	}
-
-	public Date getDateOfBirth() {
-		return dateOfBirth;
-	}
-
-	public void setDateOfBirth(Date dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
 	}
 }

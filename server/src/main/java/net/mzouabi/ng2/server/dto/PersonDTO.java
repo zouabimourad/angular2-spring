@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Created by mouradzouabi on 04/12/15.
  */
-public class PersonDTO extends  AbstractDTO{
+public class PersonDTO extends AbstractDTO {
 
     String firstname;
 

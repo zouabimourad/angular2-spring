@@ -6,12 +6,13 @@ import net.mzouabi.ng2.server.model.Person;
 import net.mzouabi.ng2.server.repository.PersonRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.inject.Inject;
+
 
 @Service
 @Transactional
@@ -19,10 +20,10 @@ public class PersonServiceImpl implements PersonService {
 
     final static Logger LOG = LoggerFactory.getLogger(PersonServiceImpl.class);
 
-    @Inject
+    @Autowired
     PersonRepository personRepository;
 
-    @Inject
+    @Autowired
     PersonMapper personMapper;
 
     @Override

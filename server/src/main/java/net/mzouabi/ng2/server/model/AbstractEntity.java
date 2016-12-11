@@ -1,11 +1,10 @@
 package net.mzouabi.ng2.server.model;
 
-import java.io.Serializable;
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Version;
+import java.io.Serializable;
 
 @MappedSuperclass
 public class AbstractEntity implements Serializable {

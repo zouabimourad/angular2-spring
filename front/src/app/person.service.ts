@@ -6,7 +6,7 @@ import * as Rx from "rxjs/Rx";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/publish';
 
-const webServiceEndpoint: string = 'http://localhost:8080/ng2/api';
+const webServiceEndpoint: string = 'http://localhost:8080/api';
 
 @Injectable()
 export class PersonService {
