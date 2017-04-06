@@ -1,10 +1,10 @@
-import { Ang2Page } from './app.po';
+import { FrontBPage } from './app.po';
 
-describe('ang2 App', function() {
-  let page: Ang2Page;
+describe('front-b App', () => {
+  let page: FrontBPage;
 
   beforeEach(() => {
-    page = new Ang2Page();
+    page = new FrontBPage();
   });
 
   it('should display message saying app works', () => {
