@@ -14,7 +14,7 @@ import {PersonService} from './person.service'
 
 const appRoutes: Routes = [
     {path: '', component: PersonListComponent},
-    {path: 'person/:id', component: PersonComponent}
+    {path: 'person/:id', component: PersonComponent, resolve: {person: PersonService}}
 ];
 
 @NgModule({

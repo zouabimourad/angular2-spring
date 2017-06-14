@@ -12,19 +12,12 @@ import {showLoading, hideLoading, doNothing} from '../commons'
     templateUrl: './person.component.html',
     styleUrls: ['./person.component.css']
 })
-export class PersonComponent implements OnInit {
+export class PersonComponent {
 
     person: Person;
 
     constructor(private router: Router, private route: ActivatedRoute, private personService: PersonService) {
-
-    }
-
-    ngOnInit() {
-        this.route.params.subscribe(params=> {
-            this.personService.getPerson(Number(params['id'])).subscribe(person => this.person = person);
-        });
-
+        this.person = route.snapshot.data['person'];
     }
 
     delete(person) {

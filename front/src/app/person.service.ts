@@ -3,12 +3,13 @@ import {Person} from './domain'
 import {PaginationPage, PaginationPropertySort} from './pagination';
 import {webServiceEndpoint} from './commons';
 import {Http, Response, URLSearchParams, RequestOptions} from '@angular/http';
+import {Resolve, RouterStateSnapshot, ActivatedRouteSnapshot} from '@angular/router';
 import * as Rx from "rxjs/Rx";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/publish';
 
 @Injectable()
-export class PersonService {
+export class PersonService implements Resolve<Person>{
 
     constructor(private http: Http) {
 
@@ -30,6 +31,10 @@ export class PersonService {
 
     getPerson(id: number): Rx.Observable<Person> {
         return this.http.get(`${webServiceEndpoint}/person/${id}`).map(this.extractData).publish().refCount();
+    }
+
+    resolve(route: ActivatedRouteSnapshot,state: RouterStateSnapshot): Rx.Observable<Person> {
+        return this.getPerson(Number(route.params['id']));
     }
 
     deletePerson(id: number): Rx.Observable<Response> {
