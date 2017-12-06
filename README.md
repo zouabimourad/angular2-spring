@@ -1,4 +1,4 @@
-# angular2-spring
+# angular 2+ Spring Boot Integration
 This example shows how to do a paginated table with Angular and Spring Boot ( RestController ) 
 
 ## Installation
