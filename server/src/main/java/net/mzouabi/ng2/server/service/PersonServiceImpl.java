@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
 
 
 @Service
@@ -28,17 +29,12 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public Page<PersonDTO> findPersons(Pageable pageable) {
-        return personRepository.findAll(pageable).map(person -> personMapper.toDTO(person));
+        return personRepository.findAll(pageable).map(personMapper::toDTO);
     }
 
     @Override
-    public PersonDTO getPerson(Long id) {
-        Person person = personRepository.getOne(id);
-        if (person == null) {
-            return null;
-        } else {
-            return personMapper.toDTO(person);
-        }
+    public Optional<PersonDTO> getPerson(Long id) {
+        return personRepository.findById(id).map(personMapper::toDTO);
     }
 
     @Override
