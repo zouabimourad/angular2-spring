@@ -5,13 +5,9 @@ import net.mzouabi.ng2.server.dto.PersonDTO;
 import net.mzouabi.ng2.server.service.PersonService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletResponse;
 
 
 @RequiredArgsConstructor
@@ -22,13 +18,9 @@ public class PersonController {
     private final PersonService personService;
 
     @GetMapping()
-    public ResponseEntity<Page<PersonDTO>> findAllPerson(Pageable pageable , HttpServletResponse httpServletResponse) {
+    public ResponseEntity<Page<PersonDTO>> findAllPerson(Pageable pageable) {
 
         Page<PersonDTO> page = personService.findPersons(pageable);
-
-        httpServletResponse.addCookie(new Cookie("mycookie","hello"));
-        httpServletResponse.addHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_CREDENTIALS, "true");
-
         return new ResponseEntity<>(page, HttpStatus.OK);
     }
 
