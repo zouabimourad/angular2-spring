@@ -1,8 +1,7 @@
-import {Component, OnInit, OnChanges, Input} from '@angular/core';
 import {PaginationPage, PaginationPropertySort} from '../pagination';
 import {Table} from '../table';
-import {showLoading, hideLoading, doNothing} from "../commons"
-import * as Rx from "rxjs/Rx";
+import {doNothing, hideLoading, showLoading} from "../commons"
+import {Component, Input, OnChanges, OnInit} from "@angular/core";
 
 @Component({
     selector: 'app-table-pagination',
@@ -31,7 +30,7 @@ export class TablePaginationComponent implements OnInit, OnChanges {
     }
 
     fetchPageNumber(pageNumer: number) {
-        let observable: Rx.Observable<any> = this.table.fetchPage(pageNumer - 1, this.page.size, this.getSort());
+        let observable = this.table.fetchPage(pageNumer - 1, this.page.size, this.getSort());
         if (observable != null) {
             showLoading();
             observable.subscribe(doNothing,hideLoading,hideLoading);
@@ -39,7 +38,7 @@ export class TablePaginationComponent implements OnInit, OnChanges {
     }
 
     fetchPageSize(pageSize: number) {
-        let observable: Rx.Observable<any> = this.table.fetchPage(this.page.number, pageSize, this.getSort());
+        let observable = this.table.fetchPage(this.page.number, pageSize, this.getSort());
         if (observable != null) {
             showLoading();
             observable.subscribe(doNothing,hideLoading,hideLoading);
@@ -51,7 +50,7 @@ export class TablePaginationComponent implements OnInit, OnChanges {
             return;
         }
 
-        let observable: Rx.Observable<any> = this.table.fetchPage(this.page.number + 1, this.page.size, this.getSort());
+        let observable = this.table.fetchPage(this.page.number + 1, this.page.size, this.getSort());
         if (observable != null) {
             showLoading();
             observable.subscribe(doNothing,hideLoading,hideLoading);
@@ -63,7 +62,7 @@ export class TablePaginationComponent implements OnInit, OnChanges {
             return;
         }
 
-        let observable: Rx.Observable<any> = this.table.fetchPage(this.page.number - 1, this.page.size, this.getSort());
+        let observable = this.table.fetchPage(this.page.number - 1, this.page.size, this.getSort());
         if (observable != null) {
             showLoading();
             observable.subscribe(doNothing,hideLoading,hideLoading);

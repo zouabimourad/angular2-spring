@@ -2,7 +2,6 @@ import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {PaginationPage, PaginationPropertySort} from '../pagination'
 import {Table} from '../table';
 import {doNothing, hideLoading, showLoading} from "../commons"
-import * as Rx from "rxjs/Rx";
 
 
 @Component({
@@ -66,7 +65,7 @@ export class TableSortComponent implements OnInit, OnChanges {
             pageNumber = 0;
         }
 
-        let observable: Rx.Observable<any> = this.table.fetchPage(pageNumber, this.page.size, sort);
+        let observable = this.table.fetchPage(pageNumber, this.page.size, sort);
 
         if (observable != null) {
             showLoading();

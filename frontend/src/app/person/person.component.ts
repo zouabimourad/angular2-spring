@@ -1,11 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {Router, ActivatedRoute, Params} from '@angular/router';
-import {Response} from '@angular/http';
-import * as Rx from 'rxjs/Rx';
+import {Component} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+
 
 import {PersonService} from '../person.service';
 import {Person} from '../domain';
-import {showLoading, hideLoading, doNothing} from '../commons'
+import {doNothing, hideLoading, showLoading} from '../commons'
 
 @Component({
     selector: 'app-person',
@@ -21,7 +20,7 @@ export class PersonComponent {
     }
 
     delete(person) {
-        let observable: Rx.Observable<Response> = this.personService.deletePerson(person.id);
+        let observable = this.personService.deletePerson(person.id);
         showLoading();
         observable.subscribe(doNothing, hideLoading, ()=> {
             this.router.navigate(['']);

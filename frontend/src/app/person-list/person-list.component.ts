@@ -1,16 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {Response} from '@angular/http';
 import {Router} from '@angular/router';
-import * as Rx from 'rxjs/Rx';
-
-import 'rxjs/add/operator/switchMap';
-
-import {PaginationPage, PaginationPropertySort} from '../pagination';
+import {PaginationPropertySort} from '../pagination';
 import {Table} from '../table';
 import {doNothing, hideLoading, showLoading} from '../commons'
 import {PersonService} from '../person.service';
 import {Person} from '../domain';
-
+import {switchMap} from "rxjs/operators";
 
 @Component({
     selector: 'app-person-list',
@@ -19,7 +14,7 @@ import {Person} from '../domain';
 })
 export class PersonListComponent implements OnInit, Table<Person> {
 
-    personPage: PaginationPage<Person>;
+    personPage: any;
     self: Table<Person>;
 
     constructor(private personService: PersonService, private router: Router) {
@@ -27,14 +22,14 @@ export class PersonListComponent implements OnInit, Table<Person> {
     }
 
     ngOnInit() {
-        let observable: Rx.Observable<PaginationPage<any>> = this.fetchPage(0, 10, {property: "firstname", direction: "asc"});
+        let observable = this.fetchPage(0, 10, {property: "firstname", direction: "asc"})
         showLoading();
         observable.subscribe(doNothing, hideLoading, hideLoading);
         this.self = this;
     }
 
-    fetchPage(pageNumber: number, pageSize: number, sort: PaginationPropertySort): Rx.Observable<PaginationPage<Person>> {
-        let observable: Rx.Observable<PaginationPage<Person>> = this.personService.findPersons(pageNumber, pageSize, sort);
+    fetchPage(pageNumber: number, pageSize: number, sort: PaginationPropertySort) {
+        let observable = this.personService.findPersons(pageNumber, pageSize, sort);
         observable.subscribe(personPage => this.personPage = personPage);
         return observable;
     }
@@ -44,11 +39,11 @@ export class PersonListComponent implements OnInit, Table<Person> {
     }
 
     delete(person) {
-
-        let observable: Rx.Observable<Response> = this.personService.deletePerson(person.id);
+        let observable = this.personService.deletePerson(person.id);
         showLoading();
-        observable.switchMap(() => {
+        observable.pipe(switchMap(() => {
             return this.fetchPage(0, 10, null);
-        }).subscribe(doNothing, hideLoading, hideLoading);
+        })).subscribe(doNothing, hideLoading, hideLoading);
     }
+
 }
