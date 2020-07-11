@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {Person} from './domain'
 import {PaginationPage, PaginationPropertySort} from './pagination';
 import {webServiceEndpoint} from './commons';
-import {Http, Response, URLSearchParams, RequestOptions} from '@angular/http';
-import {Resolve, RouterStateSnapshot, ActivatedRouteSnapshot} from '@angular/router';
+import {Http, RequestOptions, Response, URLSearchParams} from '@angular/http';
+import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
 import * as Rx from "rxjs/Rx";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/publish';
@@ -26,7 +26,11 @@ export class PersonService implements Resolve<Person>{
         let options = new RequestOptions({
             search: params
         });
-        return this.http.get(`${webServiceEndpoint}/person`, options).map(this.extractData).publish().refCount();
+
+        return this.http.get(`${webServiceEndpoint}/person`, options)
+          .map(this.extractData).map(e => { e.sort = (sort == null) ? [] : [sort]; return e; })
+          .publish()
+          .refCount();
     }
 
     getPerson(id: number): Rx.Observable<Person> {

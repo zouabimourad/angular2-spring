@@ -7,7 +7,7 @@ import 'rxjs/add/operator/switchMap';
 
 import {PaginationPage, PaginationPropertySort} from '../pagination';
 import {Table} from '../table';
-import {showLoading, hideLoading, doNothing} from '../commons'
+import {doNothing, hideLoading, showLoading} from '../commons'
 import {PersonService} from '../person.service';
 import {Person} from '../domain';
 
@@ -27,7 +27,7 @@ export class PersonListComponent implements OnInit, Table<Person> {
     }
 
     ngOnInit() {
-        let observable: Rx.Observable<PaginationPage<any>> = this.fetchPage(0, 10, null);
+        let observable: Rx.Observable<PaginationPage<any>> = this.fetchPage(0, 10, {property: "firstname", direction: "asc"});
         showLoading();
         observable.subscribe(doNothing, hideLoading, hideLoading);
         this.self = this;

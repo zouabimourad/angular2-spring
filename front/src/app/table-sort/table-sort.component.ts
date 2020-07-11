@@ -1,7 +1,7 @@
-import {Component, OnInit, OnChanges, Input} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {PaginationPage, PaginationPropertySort} from '../pagination'
 import {Table} from '../table';
-import {showLoading, hideLoading, doNothing} from "../commons"
+import {doNothing, hideLoading, showLoading} from "../commons"
 import * as Rx from "rxjs/Rx";
 
 
@@ -41,7 +41,8 @@ export class TableSortComponent implements OnInit, OnChanges {
                 defineValues(true, false, false, 'ASC');
                 return;
             }
-            var one: PaginationPropertySort = this.page.sort.find(e => e.property === this.property);
+
+            let one: PaginationPropertySort = this.page.sort.find(e => e.property === this.property);
 
             if (one == null) {
                 defineValues(true, false, false, 'ASC');

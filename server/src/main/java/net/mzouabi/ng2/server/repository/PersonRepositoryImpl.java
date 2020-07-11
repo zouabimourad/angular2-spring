@@ -8,5 +8,4 @@ public class PersonRepositoryImpl implements PersonRepositoryCustom {
 	@PersistenceContext
 	private EntityManager em;
 
-
 }
