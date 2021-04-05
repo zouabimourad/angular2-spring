@@ -35,7 +35,6 @@ public class PersonService {
     public void updatePerson(PersonDTO personDTO) {
         personRepository.findById(personDTO.getId())
                 .ifPresent(person -> personMapper.mapToEntity(personDTO, person));
-
     }
 
     public void savePerson(PersonDTO personDTO) {
